@@ -39,19 +39,35 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <title>Birthday Card</title>
 </head>
 
 <body>
-	<div class="app">
-       
-        <div id="deviceready" class="blink">
-           
-        </div>
-    </div>
-	<a href="screen1.html"> GO Screen 2 </a>
-	<a href="screen2.html"> GO Screen 3 </a>
-    <script type="text/javascript" src="cordova.js"></script>
+	<div class="headerjvb">Birthday Card</div>
+	<script>
+		jQuery(document).ready(function(){
+		var lan;
+				jQuery.ajax({url: "http://www.sharebyme.com/WebApi/gap/getCardGap.php",type: "POST",data:{term_id:'171'}, success: function(result){
+					
+					var arrresult = jQuery.parseJSON(result);
+					jQuery(".ui-grid-a").html(arrresult);
+					 //console.log(arrresult);
+				}});
+		});
+	
+	</script>
+	<div class="conentjvb">
+		<div class="ui-grid-a">
+			    <div class="ui-block-a"><img width="100%"  src="img/logo.png" ></div>
+			    <div class="ui-block-b"><img width="100%" src="img/logo.png" ></div>
+		</div><!-- /grid-a -->
+	</div>
+	<div class="footerjvb">Form JVBWorld</div>
+		
+	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
