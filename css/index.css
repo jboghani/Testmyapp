@@ -133,6 +133,21 @@ h1 {
 	padding:0px;
 	margin-bottom:25px;
 }
+.exracont{
+	position: fixed;
+    bottom: 35px;
+    width: 100%;
+}
+.exracontleft{
+    width: 48%;
+    float: left;
+	margin-right:1%;
+}
+.exracontright{
+    width: 48%;
+    float: right;
+	margin-left:1%;
+}
 .footerjvb{
 	background: #000;
 	position: fixed;
