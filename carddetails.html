@@ -47,18 +47,6 @@
 
 <body>
 	<div class="headerjvb">Birthday Card</div>
-	<script>
-		jQuery(document).ready(function(){
-		var lan;
-				jQuery.ajax({url: "http://www.sharebyme.com/WebApi/gap/getCardGap.php",type: "POST",data:{term_id:'171'}, success: function(result){
-					
-					var arrresult = jQuery.parseJSON(result);
-					jQuery(".ui-grid-a").html(arrresult);
-					 //console.log(arrresult);
-				}});
-		});
-	
-	</script>
 	<div class="conentjvb">
 		<div class="ui-grid-a">
 			    <div class="app"></div>
@@ -69,7 +57,18 @@
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+         var listvalues = localStorage.getItem('lists');
+			 //alert(listvalues);
+			 jQuery(document).ready(function(){
+				var lan;
+				jQuery.ajax({url: "http://www.sharebyme.com/WebApi/gap/getCatDetailGap.php",type: "POST",data:{post_id:listvalues}, success: function(result){
+					
+					var arrresult = jQuery.parseJSON(result);
+					jQuery(".headerjvb").html(arrresult.data.post_title);
+					jQuery(".conentjvb").html("<img width= '100%' src="+arrresult.data.image_url+" />");
+					 //console.log(arrresult.data.post_title);
+				}});
+		});
     </script>
 </body>
 

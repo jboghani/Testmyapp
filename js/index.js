@@ -47,3 +47,9 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function changepagejvb(postid){
+		var listvalues = postid;
+		localStorage.setItem('lists',listvalues); 
+		window.location.href="carddetails.html";
+}
